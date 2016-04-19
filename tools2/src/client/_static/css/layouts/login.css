@@ -1,0 +1,37 @@
+.backdrop {
+  background-color: rgb(45, 45, 45);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.backdrop-img {
+  height: 100%;
+  width: 100%;
+}
+
+#login-box {
+  width: 65%;
+  margin: 140px auto;
+  background: rgb(250, 250, 250);
+  border-radius: 8px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.shadow {
+  box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.71);
+}
+
+.login-logo {
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  bottom: 5px;
+  display: block;
+  width: 55%;
+  height: 55%;
+}
