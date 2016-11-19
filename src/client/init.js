@@ -1,21 +1,25 @@
-import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
-import { render } from 'react-dom';
-import React from 'react';
+import "babel-polyfill"
 
-// Load Global CSS
-import './_static/css/main.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore, applyMiddleware } from 'redux'
 
-import configureStore from './store/configureStore';
+import Counter from './Counter'
+import reducer from './reducers'
 
-const initialState = {}
-const store = configureStore(initialState)
+const store = createStore(reducer)
 
+const action = type => store.dispatch({type})
 
-import routes from './routes';
+function render() {
+  ReactDOM.render(
+    <Counter
+      value={store.getState()}
+      onIncrement={() => action('INCREMENT')}
+      onDecrement={() => action('DECREMENT')} />,
+    document.getElementById('root')
+  )
+}
 
-render((
-  <Provider store={store} >
-    <Router history={browserHistory} routes={routes} />
-  </Provider>
-), document.getElementById('root'));
+render()
+store.subscribe(render)
